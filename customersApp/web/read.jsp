@@ -3,20 +3,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer Database</title>
+        <title>Database of Our Customers</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"
     </head>
-    <body>
+
+    <% String table = (String) request.getAttribute("table"); %>
+
+<body>
 
         <%@ include file="includes/header.jsp" %>
         <br>
         <div class="main">
             <br><br>
             <h1>Customer Database</h1>
+                <div>
 
-            <div>
-                <img src="images/customer.png" id="logo" alt="Customers Logo" title="Customers Logo">
-            </div>
+        <%= table %>
+
+                </div> <!--main-->
         </div> <!--main-->
         <%@ include file="includes/footer.jsp" %>
 

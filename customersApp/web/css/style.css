@@ -4,18 +4,19 @@ body {
     text-align: center;
     margin: 20px auto;   
     background: #f8df84;
+    color: #073453;
 }
 
 #header {
     height: 250px;
-    background: #f8df84;
+    background: #ef5322;
 }
 
 #widgetBar {
     height: 50px;
     width: 1000px;
     float: right;
-    background: #484848;
+    background: #073453;
 }
 
 .headerWidget {
@@ -28,13 +29,14 @@ body {
 }
 
 /*footer style */
-#footer {
+.footer {
     height: 60px;
+    width: 1000px;
     clear: left;
-    background: #f8df84;
+    background: #ef5322;
 }
 
-.header {background-color: #F08080; text-align:left; padding:15px;}
+.header {background-color: #ef5322; text-align:left; padding:15px;}
 .headerImg {float: left; width:200px;}
 .headerSearch {float: right; width:200px;padding-top:175px; padding-left:25px; padding-right: 10px;}
 .headerText {float: left; height:105px; padding-top:150px; padding-left:50px;}

@@ -6,17 +6,18 @@
         <title>Customer Database</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"
     </head>
+   
     <body>
 
         <%@ include file="includes/header.jsp" %>
-        <br>
-        <div class="main">
-            <br><br>
-            <h1>Customer Database</h1>
 
-            <div>
-                <img src="images/customer.png" id="logo" alt="Customers Logo" title="Customers Logo">
-            </div>
+        <div class="main">
+            <br><br><br>
+            <h1>Welcome to the Customer Database!</h1>
+
+            
+                <img src="images/customer.png" id="logo" alt="Customers Logo" title="Customers Logo" width="1000px">
+            
         </div> <!--main-->
         <%@ include file="includes/footer.jsp" %>
 

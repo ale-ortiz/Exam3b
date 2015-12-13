@@ -1,45 +1,43 @@
-<div id="main">
+<link rel="stylesheet" type="text/css" href="css/style.css"
 
-    <div class="header">	
-        <div class="headerImg">
-            <a href="index.jsp">
-                <img src="images/customers.png" id="logo" alt="Customers Logo" title="Customers Logo" width="300px">
-            </a>
-        </div>	    
-      
-        <div class="headerText">
-            <h1> Database of Our Customers </h1>
-        </div>	
-        <div class="headerSearch">
-            <div>
-                <form name="searchForm" action="search" method="get">
+<div class="header">
+    <div class="headerImg">
+        <img src="images/customers.png" width="250px" />
+    </div>	
+    <div class="headerText">
+        <h1> Database of Our Customers </h1>
+       <br clear="all">
 
-                    <input type="text" name="searchVal" value="" />
+    </div>	
+    <div class="headerSearch">
+    <form name="searchForm" action="search" method="get"> 
 
+                <input type="text" name="searchVal" value="" /> 
 
-                    <input type="submit" name="submit" value="Search" />
-                </form>
-            </div>        
-        </div>	
-        <br clear="all">
+                <input type="submit" name="submit" value="Search" /> 
+             
+            </form>  
     </div>
-    <div id="header">
-        <div id="widgetBar">
+    
+    <div id="main">
+        <div id="header">
+            <div id="widgetBar">
 
-            <div class="headerWidget">
-                <a href="https://www.youtube.com/watch?v=2HQaBWziYvY" title="Party!">Party?</a>
+                <div class="headerWidget">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Party</a>
+                </div>
+
+                <div class="headerWidget">
+                    <a href="add">Add A Customer</a>
+                </div>
+
+                <div class="headerWidget">
+                    <a href="read">View Customers</a>
+                </div>
+
+                <div class="headerWidget">
+                    <a href="index.jsp">Home</a>
+                </div>  
+
             </div>
-
-            <div class="headerWidget">
-                <a href="add" title="Add A Customer">Add A Customer</a>
-            </div>
-
-            <div class="headerWidget">
-                <a href="read" title="View Customers">View Customers</a>
-            </div>
-
-            <div class="headerWidget">
-                <a href="index.jsp" title="Home">Home</a>
-            </div>  
-
         </div>
