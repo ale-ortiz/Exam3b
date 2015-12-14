@@ -2,7 +2,9 @@
 
 <div class="header">
     <div class="headerImg">
+        <a href="index.jsp">
         <img src="images/customers.png" width="250px" />
+        </a>
     </div>	
     <div class="headerText">
         <h1> Database of Our Customers </h1>

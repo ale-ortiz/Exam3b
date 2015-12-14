@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author aleortiz
+ * @author alejandromurguia-ortiz
  */
 @WebServlet(name = "SearchServlet", urlPatterns = {"/search"})
 public class SearchServlet extends HttpServlet {
@@ -60,7 +60,7 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         doPost(request, response);
     }
 
@@ -76,19 +76,18 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-               String albumName = request.getParameter("searchVal");
-
-               
-        SearchQuery sq = new SearchQuery();        
+        String firstName = request.getParameter("searchVal");
         
-        sq.doSearch(albumName);
-        String table = sq.getHTMLTable();
+        SearchQuery sq = new SearchQuery();
+        
+        sq.doSearch(firstName);
+        String table = sq.getHTMLtable();
         
         request.setAttribute("table", table);
         String url = "/read.jsp";
-                
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        dispatcher.forward(request, response); 
     }
 
     /**

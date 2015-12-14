@@ -17,8 +17,9 @@
             <br><br>
             <h1>Customer Database</h1>
                 <div>
-
+                    <br>
         <%= table %>
+                    <br>
 
                 </div> <!--main-->
         </div> <!--main-->

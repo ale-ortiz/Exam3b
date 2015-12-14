@@ -60,7 +60,7 @@ public class ReadQuery {
     public void doRead() {
 
         try {
-            String query = "Select * from customers";
+            String query = "Select * from customers ORDER BY custID ASC";
 
             PreparedStatement ps = conn.prepareStatement(query);
             this.results = ps.executeQuery();
@@ -73,10 +73,10 @@ public class ReadQuery {
     public String getHTMLtable() {
 
         String table = "";
-        table += "<table border=1>";
+        table += "<table>";
 
         try {
-                        table += "<tr>";
+            table += "<tr>";
 
             table += "<th>";
             table += "ID";
@@ -179,6 +179,12 @@ public class ReadQuery {
                 table += "<td>";
                 table += customer.getAge();
                 table += "</td>";
+                
+                table += "<td>";
+                table += "<a href=update?custID=" + customer.getCustID() + "> Update </a>" + "<a href=delete?custID=" + customer.getCustID() + "> Delete </a>";
+                table += "</td>";
+                table += "</tr>";
+                
                 
                 table += "</tr>";
             }

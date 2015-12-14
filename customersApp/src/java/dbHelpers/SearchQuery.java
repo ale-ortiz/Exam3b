@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dbHelpers;
 
 import java.io.IOException;
@@ -12,12 +17,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Customers;
 
+/**
+ *
+ * @author alejandromurguia-ortiz
+ */
 public class SearchQuery {
 
     private Connection conn;
     private ResultSet results;
 
     public SearchQuery() {
+
         Properties props = new Properties();
         InputStream instr = getClass().getResourceAsStream("dbConn.properties");
         try {
@@ -35,6 +45,7 @@ public class SearchQuery {
         String url = props.getProperty("server.name");
         String username = props.getProperty("user.name");
         String passwd = props.getProperty("user.password");
+
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {
@@ -45,15 +56,17 @@ public class SearchQuery {
         } catch (SQLException ex) {
             Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
-    public void doSearch(String albumName) {
+    public void doSearch(String Name) {
 
         try {
-            String query = "SELECT * FROM albums WHERE UPPER(albumName) LIKE ? ORDER BY albumID ASC";
+            String query = "Select * from customers WHERE UPPER(firstName) LIKE ? OR UPPER(lastName) LIKE ?";
 
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, "%" + albumName.toUpperCase() + "%");
+            ps.setString(1, "%" + Name.toUpperCase() + "%");
+            ps.setString(2, "%" + Name.toUpperCase() + "%");
             this.results = ps.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,19 +74,67 @@ public class SearchQuery {
 
     }
 
-    public String getHTMLTable() {
+    public String getHTMLtable() {
+
         String table = "";
-        table += "<table border=1>";
+        table += "<table>";
 
         try {
+            table += "<tr>";
+
+            table += "<th>";
+            table += "ID";
+            table += "</th>";
+
+            table += "<th>";
+            table += "First Name";
+            table += "</th>";
+
+            table += "<th>";
+            table += "Last Name";
+            table += "</th>";
+
+            table += "<th>";
+            table += "Address 1";
+            table += "</th>";
+
+            table += "<th>";
+            table += "Address 2";
+            table += "</th>";
+
+            table += "<th>";
+            table += "City";
+            table += "</th>";
+
+            table += "<th>";
+            table += "State";
+            table += "</th>";
+
+            table += "<th>";
+            table += "Zip Code";
+            table += "</th>";
+
+            table += "<th>";
+            table += "Email Address";
+            table += "</th>";
+
+            table += "<th>";
+            table += "Age";
+            table += "</th>";
+
+            table += "<th>";
+            table += "";
+            table += "</th>";
+
+            table += "</tr>";
+
             while (this.results.next()) {
 
                 Customers customer = new Customers();
-
                 customer.setCustID(this.results.getInt("custID"));
                 customer.setFirstName(this.results.getString("firstName"));
                 customer.setLastName(this.results.getString("lastName"));
-                customer.setAddr1(this.results.getString("laddr1"));
+                customer.setAddr1(this.results.getString("addr1"));
                 customer.setAddr2(this.results.getString("addr2"));
                 customer.setCity(this.results.getString("city"));
                 customer.setState(this.results.getString("state"));
@@ -82,9 +143,9 @@ public class SearchQuery {
                 customer.setAge(this.results.getInt("age"));
 
                 table += "<tr>";
+
                 table += "<td>";
                 table += customer.getCustID();
-
                 table += "</td>";
 
                 table += "<td>";
@@ -128,14 +189,14 @@ public class SearchQuery {
                 table += "</td>";
                 table += "</tr>";
 
+                table += "</tr>";
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         table += "</table>";
 
         return table;
     }
-
 }
